@@ -12,11 +12,10 @@ POST http://localhost:3000/users HTTP/1.1
 content-type: application/json
 
 {
-    "firstName":"Ashley",
-    "lastName":"Weaver",
     "email":"aWeaver@test.com",
-    "favoriteColor":"Brown",
-    "birthday":"05/05/1981"
+    "username":"Brown",
+    "name":"Rebekah",
+    "ipaddress":"94.121.168.53"
 }
 
 
