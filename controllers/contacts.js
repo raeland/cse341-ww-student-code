@@ -1,20 +1,42 @@
-const mongodb = require('../db/connect');
+const mongodb = require('../data/database');
 const ObjectId = require("mongodb").ObjectId
 
-const getAll = async (req, res, next) => {
-  const result = await mongodb.getDb().db().collection('contacts').find();
-  result.toArray().then((lists) => {
+/* **************************
+ * Retrieves ALL Contacts from the database
+ * *******************************/
+const getAllContact = async (req, res, next) => {
+    //#swagger.tags=['Contacts']
+  const result = await mongodb.getDb().db().collection().find();
+  result.toArray().then((users) => {
     res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists); // we just need the first one (the only one)
+    res.status(200).json(users); // we just need the first one (the only one)
   });
 };
 
-const getContact = async (req, res, next) => {
-    const contactId = new ObjectId(req.params.id)
-    const result = await mongodb.getDb().db().collection('contacts').find({_id:contactId});
-    result.toArray().then((lists) => {
+/* **************************
+ * Retrieves A Single Contact from database
+ * *******************************/
+const getSingleContact = async (req, res, next) => {
+      //#swagger.tags=['Contacts']
+    const userId = new ObjectId(req.params.id)
+    const result = await mongodb.getDb().db().collection('contacts').find({_id:userId});
+    result.toArray().then((users) => {
       res.setHeader('Content-Type', 'application/json');
-      res.status(200).json(lists[0]); // we just need the first one (the only one)
+      res.status(200).json(users[0]); // we just need the first one (the only one)
     });
   };
-module.exports = { getAll, getContact };
+
+/* **************************
+ * Inserts A USER to database
+ * *******************************/
+const createContact = async (req, res, next) => {
+  //#swagger.tags=['Contacts']
+const userId = new ObjectId(req.params.id)
+const result = await mongodb.getDb().db().collection('contacts').find({_id:userId});
+result.toArray().then((users) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.status(200).json(users[0]); // we just need the first one (the only one)
+});
+};
+
+module.exports = { getAllContact, getSingleContact };

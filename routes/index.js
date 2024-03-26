@@ -1,18 +1,18 @@
 const router = require("express").Router()
-const professionalRoutes = require("./professional")
-const contactsRoutes = require("./contacts")
-const dotenv = require('dotenv').config()
+//const dotenv = require('dotenv').config()
+const usersRoute = require('./users')
+const contactsRoute = require('./contacts')
+const swaggerRoute = require('./swagger')
 
-router.use("/professional", professionalRoutes)
-router.use("/contacts", contactsRoutes)
-
-router.use('/', require('./swagger'))
+router.use('/', swaggerRoute)
 
 router.get("/", (req, res) => { 
     //#swagger.tags=['Hello World']
-    res.send ('Hello World')
+   res.send ('Hello World')
 })
 
-router.use("/users", require('./users'))
+router.use('/users', usersRoute)
+router.use('/contacts', contactsRoute)
+//router.use('/professional', require('./professional'))
 
 module.exports = router
