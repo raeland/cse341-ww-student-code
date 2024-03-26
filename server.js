@@ -7,7 +7,7 @@ const mongodb = require('./data/database')
 const app = express();
  
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json())
 app.use((req, res, next) => {
@@ -25,7 +25,7 @@ app.use('/', require('./routes'))
 /* ***********************
  * Express Error Handler
  * Place after ALL other middleware
- *************************/
+ ************************
 app.use(async (err, req, res, next) => {
   message =`Oh NO! There was a crash. Maybe try a different route? ${req.status} - ${err.message}`
   //let nav = await utilities.getNav()
@@ -36,9 +36,9 @@ app.use(async (err, req, res, next) => {
     title: err.status || 'Server Error',
     message,
     nav
-  }) */
+  }) 
 })
-
+*/
 mongodb.initDb((err) => {
   if(err) {
     console.log(err)

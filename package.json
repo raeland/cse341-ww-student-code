@@ -1,13 +1,17 @@
 {
   "name": "cse341-ww-student-code",
   "version": "1.0.0",
-  "description": "",
+  "description": "Project One",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raeland/cse341-ww-student-code.git"
+  },
+  "author": "Rachael S Varady",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",

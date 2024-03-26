@@ -16,3 +16,18 @@ router.use('/contacts', contactsRoute)
 //router.use('/professional', require('./professional'))
 
 module.exports = router
+
+/*
+const router = require('express').Router();
+
+router.use('/', require('./swagger'));
+
+router.get('/', (req, res) => {
+    //#swagger.tags=['index']
+    res.send('Sunseehray Tirazona');
+});
+
+router.use('/users', require('./users'));
+
+module.exports = router;
+*/
