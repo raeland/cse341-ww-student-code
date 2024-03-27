@@ -1,7 +1,7 @@
 {
-  "name": "cse341-ww-student-code",
+  "name": "cse341project2",
   "version": "1.0.0",
-  "description": "Project One",
+  "description": "Project Two",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/raeland/cse341-ww-student-code.git"
+    "url": "git+https://github.com/raeland/cse341project2"
   },
   "author": "Rachael S Varady",
   "license": "ISC",

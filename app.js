@@ -1,20 +1,20 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
-const mongodb = require('./db/connect')
-const routes = require('./routes/index')
+const mongodb = require('./data/database')
 const dotenv = require('dotenv').config()
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 3000
 const app = express()
 
-app
-  .use(bodyParser.json())
-  .use((req, res, next) => {
+app.use(bodyParser.json())
+app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*')
     next()
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+    next()
   })
-  .use('/', routes)
+app.use('/', require('./routes'))
 
 mongodb.initDb((err, mongodb) => {
   if (err) {
